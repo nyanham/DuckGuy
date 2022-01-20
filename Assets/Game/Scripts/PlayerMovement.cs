@@ -5,15 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 { 
     public float speed = 15f;
-    private Rigidbody2D body;
+    public float jumpForce = 10f;
+    private Rigidbody2D rb;
 
-    void Awake() => body = GetComponent<Rigidbody2D>();
+    void Start() => rb = GetComponent<Rigidbody2D>();
 
     void Update()
     {
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        //movement
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        transform.position += speed * Time.deltaTime * movement;
 
-        if (Input.GetKey(KeyCode.Space))
-            body.velocity = new Vector2(body.velocity.x, speed);
+        //jump
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
     }
 }
