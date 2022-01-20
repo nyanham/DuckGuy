@@ -1,2 +1,2 @@
-# DuckMan
+# DuckGuy
 The Game
