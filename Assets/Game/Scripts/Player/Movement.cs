@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -19,7 +17,7 @@ public class Movement : MonoBehaviour
         transform.position += speed * Time.deltaTime * movement;
 
         //jump
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
