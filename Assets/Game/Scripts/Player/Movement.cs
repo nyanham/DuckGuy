@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Movement : MonoBehaviour
 { 
     [SerializeField]
     private float speed = 15f;
     [SerializeField]
-    private float jumpForce = 10f;
+    private float jumpForce = 15f;
     private Rigidbody2D rb;
 
     void Start() => rb = GetComponent<Rigidbody2D>();
