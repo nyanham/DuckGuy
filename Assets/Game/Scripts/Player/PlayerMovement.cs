@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 { 
-    public float speed = 15f;
-    public float jumpForce = 10f;
+    [SerializeField]
+    private float speed = 15f;
+    [SerializeField]
+    private float jumpForce = 10f;
     private Rigidbody2D rb;
 
     void Start() => rb = GetComponent<Rigidbody2D>();
